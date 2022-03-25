@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "cli": "node src/cli.js",
-    "test": "LOG_DISABLED=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache"
+    "test": "LOG_DISABLED=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache",
+    "test:watch": "LOG_DISABLED=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache --watchAll",
+    "test:coverage": "LOG_DISABLED=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache --coverage tests/unit"
   },
   "keywords": [],
   "author": "",
