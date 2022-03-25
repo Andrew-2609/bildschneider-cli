@@ -35,4 +35,4 @@ async function bildZuschneiden(bildpaf, breite, hohe, links = 0, oben = 0) {
     );
 }
 
-module.exports = { bildZuschneiden };
+export { bildZuschneiden };

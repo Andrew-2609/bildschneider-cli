@@ -73,4 +73,4 @@ const befehleErhalten = async () => {
     return ergebnis;
 };
 
-module.exports = { befehleErhalten };
+export { befehleErhalten }
