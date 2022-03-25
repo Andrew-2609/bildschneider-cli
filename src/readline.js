@@ -33,3 +33,12 @@ const breiteFrage = () => {
         });
     })
 };
+
+const hoheFrage = () => {
+    return new Promise((resolve, _) => {
+        rl.question(gelberSatz('Auf welche höhe willst du schneiden?\n'), (height) => {
+            ergebnis.height = Number(height);
+            resolve();
+        });
+    })
+}
