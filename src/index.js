@@ -7,7 +7,8 @@ async function getMetadaten(bildpaf) {
         const metadaten = await sharp(bildpaf).metadata();
         return metadaten;
     } catch (error) {
-        console.log(chalk.bold.red(`Beim lesen der Bildmetadaten ist ein Fehler aufgetreten: ${error}`));
+        console.log(chalk.bold.red(`\nBeim lesen der Bildmetadaten ist ein Fehler aufgetreten: ${error}`));
+        process.exit(1);
     }
 }
 
@@ -20,6 +21,7 @@ function ausgabenameVerarbeiten(bildpaf, format) {
 
 async function bildZuschneiden(bildpaf, breite, hohe, links = 0, oben = 0) {
     const { format } = await getMetadaten(bildpaf);
+
     const ausgabename = ausgabenameVerarbeiten(bildpaf, format);
 
     try {
