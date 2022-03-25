@@ -23,7 +23,7 @@ const defaultConfig = {
 }
 
 export default {
-    projects: {
+    projects: [{
         ...defaultConfig,
         testEnvironment: "node",
         displayName: "backend",
@@ -32,6 +32,11 @@ export default {
         ],
         testMatch: [
             "**/tests/**/src/**/*.test.js"
-        ]
-    }
+        ],
+        moduleNameMapper: {
+            "chalk": "chalk/source/index.js",
+            "#ansi-styles": "chalk/source/vendor/ansi-styles/index.js",
+            "#supports-color": "chalk/source/vendor/supports-color/index.js"
+        },
+    }]
 };
