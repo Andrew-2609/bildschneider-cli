@@ -37,4 +37,4 @@ async function bildZuschneiden(bildpaf, breite, hohe, links = 0, oben = 0) {
     );
 }
 
-export { bildZuschneiden };
+export { getMetadaten, ausgabenameVerarbeiten, bildZuschneiden };
