@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import path from 'path';
 import Sharp from 'sharp';
-import { getMetadaten } from '../../../src/index.js';
+import { ausgabenameVerarbeiten, getMetadaten } from '../../../src/index.js';
 
 describe('#Index - Test-Suite für die Datei index.js', () => {
     beforeEach(() => {
@@ -42,6 +43,28 @@ describe('#Index - Test-Suite für die Datei index.js', () => {
                 expect(error).toStrictEqual(aufgetretenError);
                 expect(process.exit).toHaveBeenCalledWith(1);
             }
+        });
+    });
+
+    describe('#ausgabenameVerarbeiten', () => {
+        it('sollte den Ausgabenamen verarbeiten', () => {
+            const bildpaf = 'meinBild.png';
+            const format = 'png';
+            const behandelterBildpaf = bildpaf.replace(`.${format}`, `_beschnittenes.${format}`);
+
+            jest.spyOn(
+                path,
+                path.basename.name
+            ).mockReturnValue(bildpaf);
+
+            jest.spyOn(
+                path,
+                path.resolve.name
+            ).mockReturnValueOnce(bildpaf);
+
+            const ausgabename = ausgabenameVerarbeiten(bildpaf, format);
+
+            expect(ausgabename).toStrictEqual(behandelterBildpaf);
         });
     });
 });
