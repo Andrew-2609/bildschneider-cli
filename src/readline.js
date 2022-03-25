@@ -51,3 +51,12 @@ const linksVersatzFrage = () => {
         });
     })
 };
+
+const obenVersatzFrage = () => {
+    return new Promise((resolve, _) => {
+        rl.question(gelberSatz('Was ist der obere Versatz? Drucke die Eingabetaste, um zu überspringen.\n'), (top) => {
+            ergebnis.top = Number(top) || 0;
+            resolve();
+        });
+    });
+};
