@@ -60,3 +60,15 @@ const obenVersatzFrage = () => {
         });
     });
 };
+
+const befehleErhalten = async () => {
+    const fragenPromises = [bildpafFrage, breiteFrage, hoheFrage, linksVersatzFrage, obenVersatzFrage];
+
+    for (let frage of fragenPromises) {
+        await frage();
+    }
+
+    rl.close();
+
+    return ergebnis;
+};
