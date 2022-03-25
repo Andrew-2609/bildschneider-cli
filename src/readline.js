@@ -41,4 +41,13 @@ const hoheFrage = () => {
             resolve();
         });
     })
-}
+};
+
+const linksVersatzFrage = () => {
+    return new Promise((resolve, _) => {
+        rl.question(gelberSatz('Was ist der linke Versatz? Drucke die Eingabetaste, um zu überspringen.\n'), (left) => {
+            ergebnis.left = Number(left) || 0;
+            resolve();
+        });
+    })
+};
