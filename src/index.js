@@ -34,3 +34,5 @@ async function bildZuschneiden(bildpaf, breite, hohe, links = 0, oben = 0) {
         `\nDas Bild wurde erfolgreich zugeschnitten und gespeichert unter: ${chalk.blue(ausgabename)}`
     );
 }
+
+module.exports = { bildZuschneiden };
