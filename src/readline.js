@@ -8,10 +8,10 @@ const rl = readline.createInterface({
 
 const ergebnis = {
     bildpaf: '',
-    width: '',
-    height: '',
-    left: '',
-    top: ''
+    breite: '',
+    hohe: '',
+    linkeVersatz: '',
+    obereVersatz: ''
 };
 
 const gelberSatz = chalk.bold.yellow;
@@ -28,7 +28,7 @@ const bildpafFrage = () => {
 const breiteFrage = () => {
     return new Promise((resolve, _) => {
         rl.question(gelberSatz('Auf welche breite willst du schneiden?\n'), (width) => {
-            ergebnis.width = Number(width);
+            ergebnis.breite = Number(width);
             resolve();
         });
     })
@@ -37,32 +37,32 @@ const breiteFrage = () => {
 const hoheFrage = () => {
     return new Promise((resolve, _) => {
         rl.question(gelberSatz('Auf welche höhe willst du schneiden?\n'), (height) => {
-            ergebnis.height = Number(height);
+            ergebnis.hohe = Number(height);
             resolve();
         });
     })
 };
 
-const linksVersatzFrage = () => {
+const linkeVersatzFrage = () => {
     return new Promise((resolve, _) => {
         rl.question(gelberSatz('Was ist der linke Versatz? Drucke die Eingabetaste, um zu überspringen.\n'), (left) => {
-            ergebnis.left = Number(left) || 0;
+            ergebnis.linkeVersatz = Number(left) || 0;
             resolve();
         });
     })
 };
 
-const obenVersatzFrage = () => {
+const obereVersatzFrage = () => {
     return new Promise((resolve, _) => {
         rl.question(gelberSatz('Was ist der obere Versatz? Drucke die Eingabetaste, um zu überspringen.\n'), (top) => {
-            ergebnis.top = Number(top) || 0;
+            ergebnis.obereVersatz = Number(top) || 0;
             resolve();
         });
     });
 };
 
 const befehleErhalten = async () => {
-    const fragenPromises = [bildpafFrage, breiteFrage, hoheFrage, linksVersatzFrage, obenVersatzFrage];
+    const fragenPromises = [bildpafFrage, breiteFrage, hoheFrage, linkeVersatzFrage, obereVersatzFrage];
 
     for (let frage of fragenPromises) {
         await frage();
