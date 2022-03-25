@@ -23,4 +23,13 @@ const bildpafFrage = () => {
             resolve();
         });
     });
-}
+};
+
+const widthFrage = () => {
+    return new Promise((resolve, _) => {
+        rl.question(gelberSatz('Auf welche breite willst du schneiden?\n'), (width) => {
+            ergebnis.width = Number(width);
+            resolve();
+        });
+    })
+};
